@@ -19,3 +19,7 @@
     margin: 0 auto;
     max-width: 100px;
 }
+
+pagination-controls {
+    text-align: center;
+}
