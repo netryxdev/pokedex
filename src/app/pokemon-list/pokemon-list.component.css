@@ -2,8 +2,8 @@
 .pokemon-grid {
     display: grid;
     grid-gap: 16px;
-    padding: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
+    padding: 19px;
+    grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));
 }
 
 .pokemon-grid .box{
