@@ -16,24 +16,34 @@ export class PokemonListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPokemons();
+    this.getPokemons(); 
+    this.getPokemonName('pikachu'); //colocar variavel e depois remover daqui do onInit
 }
 
 // Get Pokemons
 getPokemons() {
-  this.dataService.getPokemons(12, (this.page * 12) - 12)
-      .subscribe((response: any) => {
+  this.dataService.getPokemons(12, (this.page * 12) - 12).subscribe((response: any) => {
         this.totalPokemons = response.count;
-
         response.results.forEach((result: any) => {
-          this.dataService.getMoreData(result.name)
+          this.dataService.getPokemonName(result.name)
             .subscribe((response: any) => {
               this.pokemons = [...this.pokemons, response].sort(
                 (a, b) => a.id - b.id
               );
-              console.log(this.pokemons);
             });
         });;
       });
     }
+
+    getPokemonName(pokemonName: string) {
+      this.dataService.getPokemonName(pokemonName.toLowerCase()).subscribe((response: any) => {
+        this.pokemons = [...this.pokemons, response].sort(
+          (a, b) => a.id - b.id
+        );
+        console.log(this.pokemons);
+      });
+    }
 }
+
+  
+
