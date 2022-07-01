@@ -26,6 +26,39 @@
     max-width: 100px;
 }
 
+    /* media queries */
+
+@media  (max-width: 600px) {
+    .pokemon-grid {
+        display: flex;
+        grid-gap: 16px;
+        padding: 32px 0px;
+        grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));
+        justify-content: space-between;
+        align-items: center;
+        justify-items: center;
+        flex-direction: column;
+    }
+
+    .pokemon-grid .box {
+        width: 100%;
+        height: 208px;
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+        display: grid;
+        text-align: center;
+        max-width: 82%;
+        justify-content: space-around;
+        min-width: 128px;
+    }
+    
+    .pokemon-grid .box img {
+        display: block;
+        margin: 0 auto;
+        max-width: 105px;
+        min-width: 100px;
+    }
+}
+
 pagination-controls {
     text-align: center;
 }
