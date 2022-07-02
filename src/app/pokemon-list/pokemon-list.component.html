@@ -1,9 +1,6 @@
-<!-- Pokemon Grid -->
+<!-- Poke mon Grid -->
 <div id="inputName">
-    <input type="text" id="name" name="pokemonName" placeholder="Search">
-</div>
-<div id="searchButton">
-    <button (click)="getPokemonName(pokemonName)">Find!</button>
+    <input matInput [type]="search" (keydown.enter)="getPokemonName(pokemonName)" id="name" name="pokemonName" placeholder="Search">
 </div>
 
 <div class="pokemon-grid">

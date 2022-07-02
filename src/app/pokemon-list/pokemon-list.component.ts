@@ -10,7 +10,7 @@ export class PokemonListComponent implements OnInit {
   pokemons: any[] = [];
   page = 1;
   totalPokemons: any;
-  pokemonName: string = '';
+  pokemonName: string = getElement;
 
   constructor(
     private dataService: DataService
