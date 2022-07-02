@@ -10,6 +10,7 @@ export class PokemonListComponent implements OnInit {
   pokemons: any[] = [];
   page = 1;
   totalPokemons: any;
+  pokemonName: string = '';
 
   constructor(
     private dataService: DataService
@@ -17,7 +18,7 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPokemons(); 
-    this.getPokemonName('pikachu'); //colocar variavel e depois remover daqui do onInit
+    this.getPokemonName(this.pokemonName); //colocar variavel e depois remover daqui do onInit
 }
 
 // Get Pokemons

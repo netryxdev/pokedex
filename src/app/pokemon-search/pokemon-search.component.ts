@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonListComponent } from '../pokemon-list/pokemon-list.component';
 
 @Component({
   selector: 'app-pokemon-search',
@@ -11,5 +12,6 @@ export class PokemonSearchComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }
