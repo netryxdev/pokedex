@@ -1,5 +1,8 @@
 import { DataService } from './../service/data.service';
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-pokemon-list',
@@ -7,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
+  search = new FormControl('');
   pokemons: any[] = [];
   page = 1;
   totalPokemons: any;
-  pokemonName: string = getElement;
+  pokemonName: string = '';
+  pokemonDetails: [] = [];
 
   constructor(
     private dataService: DataService
@@ -18,8 +23,9 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPokemons(); 
-    this.getPokemonName(this.pokemonName); //colocar variavel e depois remover daqui do onInit
+     //colocar variavel e depois remover daqui do onInit
 }
+
 
 // Get Pokemons
 getPokemons() {
@@ -36,12 +42,10 @@ getPokemons() {
       });
     }
 
-    getPokemonName(pokemonName: string) {
-      this.dataService.getPokemonName(pokemonName.toLowerCase()).subscribe((response: any) => {
-        this.pokemons = [...this.pokemons, response].sort(
-          (a, b) => a.id - b.id
-        );
-        console.log(this.pokemons);
+    getPokemonName() {
+      this.dataService.getPokemonName(this.pokemonName.toLowerCase()).subscribe((response: any) => {
+        
+        console.log(response);
       });
     }
 }

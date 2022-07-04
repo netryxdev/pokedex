@@ -1,7 +1,11 @@
 <!-- Poke mon Grid -->
-<div id="inputName">
-    <input matInput [type]="search" (keydown.enter)="getPokemonName(pokemonName)" id="name" name="pokemonName" placeholder="Search">
-</div>
+
+    <form >
+        <input type="search" (keydown.enter)="getPokemonName()" 
+        [(ngModel)] = "pokemonName"
+        id="pokemonName" name="pokemonName" placeholder="Pokémon Name">
+    </form>
+
 
 <div class="pokemon-grid">
     <div class="box" 
