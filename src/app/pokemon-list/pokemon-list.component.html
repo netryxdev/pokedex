@@ -1,7 +1,7 @@
 <!-- Poke mon Grid -->
 
-    <form >
-        <input type="search" (keydown.enter)="getPokemonName()" 
+    <form class="form-pokemon-search">
+        <input type="search" (keydown.enter)="getPokemonDetail()" 
         [(ngModel)] = "pokemonName"
         id="pokemonName" name="pokemonName" placeholder="Pokémon Name">
     </form>
