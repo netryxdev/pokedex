@@ -1,7 +1,13 @@
-import { DataService } from './../service/data.service';
-import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { ActivatedRoute, RouterModule, Router } from '@angular/router';
+import { DataService } from '../service/data.service';
+import { PokemonService } from '../service/pokemon.service';
+import { PokemonDetailsComponent } from './../pokemon-details/pokemon-details.component';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MDCSnackbar } from '@material/snackbar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { PokemonDetail } from '../models/pokemon.detail';
 
 
 @Component({
@@ -11,7 +17,7 @@ import { MDCSnackbar } from '@material/snackbar';
 })
 export class PokemonListComponent implements OnInit {
   search = new FormControl('');
-  pokemons: any[] = [];
+  pokemons: PokemonDetail[] = [];
   page = 1;
   totalPokemons: any;
   pokemonName: string = '';
@@ -19,14 +25,18 @@ export class PokemonListComponent implements OnInit {
   searchValidation: boolean = false;
   loading: boolean = false;
   searchPokemon: any;
+  pokemonInfo: any;
+  getValuePokemon:any= '';
 
   constructor(
-    private dataService: DataService
-    
-  ) { }
+    private dataService: DataService,
+    private pokemonService: PokemonService,
+    private snack: MatSnackBarModule,
+  ) { this.pokemons}
 
   ngOnInit(): void {
     this.getPokemons(); 
+    this.dataService.globalNamePokemon
      //colocar variavel e depois remover daqui do onInit
 }
 
@@ -41,6 +51,7 @@ export class PokemonListComponent implements OnInit {
                   this.pokemons = [...this.pokemons, response].sort(
                     (a, b) => a.id - b.id
                   );
+                  this.getValuePokemon = this.pokemons
                 });
             });;
           });
@@ -58,20 +69,40 @@ export class PokemonListComponent implements OnInit {
           this.searchPokemon = pokemon;
           this.loading = false;
           console.log('search successfull')
-          }) 
+          }/* , (error: any) => {
+            this.loading = false;
+            if(error.status === 400) {
+              this.snack.open();
+            }
+          } */) 
         }
     }
-  
 
+    getSearch(value: string) {
+      const filter = this.pokemons.filter( (res:any) => {
+        return res.name.includes(value.toLowerCase()); //includes para buscar de forma precisa o resultador mais parecido possível e indexOf faz o contrário
+      });
+      this.pokemons = filter;
+      this.getValuePokemon= this.searchPokemon;
+      console.log(this.getValuePokemon)
+    }
 
-    getPokemonDetail() {
-      this.dataService.getPokemonName(this.pokemonName.toLowerCase()).subscribe((response: any) => {
+    getPokemonDetail(name: any) {
+      this.pokemonName = name
+      const arr: Observable<PokemonDetail>[] = []
+      this.dataService.getPokemonName(name.toLowerCase()).subscribe((response: any) => {
+        //arr.push(response);
+        //console.log(response);
+        //this.searchPokemonValidation();
+        /* console.log(this.pokemonName)
+        this.pokemonInfo = response
+        console.log(this.pokemonInfo) */
         
-        console.log(response);
-        this.searchPokemonValidation();
+        //location.href = `details/:${this.pokemonName}`
       });
     }
+  
+
 }
 
-  
 
