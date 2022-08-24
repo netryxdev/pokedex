@@ -1,14 +1,14 @@
+import { PokeApiService } from './../service/pokeApi.service';
 import { PokemonDetail } from '../models/pokemon.detail';
 import { Component, OnInit } from '@angular/core';
-import { PokemonListComponent } from '../pokemon-list/pokemon-list.component';
-import { DataService } from '../service/data.service';
+import { PokeListComponent } from '../pokemon-list/poke-list.component';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-details',
-  templateUrl: '../pokemon-details/pokemon-details.component.html',
-  styleUrls: ['./pokemon-details.component.css']
+  templateUrl: './poke-details.component.html',
+  styleUrls: ['./poke-details.component.css']
 })
 export class PokemonDetailsComponent implements OnInit {
 
@@ -18,7 +18,7 @@ export class PokemonDetailsComponent implements OnInit {
 
   
   constructor(
-    public dataService: DataService,
+    public PokeApiService: PokeApiService,
     private activatedRoute: ActivatedRoute,
     public pokemondetail: PokemonDetail
     ) { 

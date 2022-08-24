@@ -1,5 +1,9 @@
 <form action="">
     <!-- Este #input é na verdade o id do input no formato do angular -->
-    <input type="text" name="name" #input (keyup)="search(input.value)" placeholder="Pokémon Name">
-    <img src="src\assets\icons\pokemon-svgrepo-com.svg" alt="logo-search">
+    <div class="container-container-search">
+        <div class="container-search">
+            <input class="input-bar" type="text" name="name" #input (keyup)="search(input.value)" placeholder="Pokémon Name">
+            <i class="fa fa-search search-icon"></i>
+        </div>
+    </div>
 </form>

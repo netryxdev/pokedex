@@ -1,0 +1,32 @@
+.container-container-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-search {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 60%;
+}
+
+.input-bar {
+    width: 80%;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #7431F9;
+    background-color: #ddd;
+    padding: 5px 10px 0px 10px;
+}
+
+.fa fa-search {
+    color: black;
+}
+
+.search-icon {
+    right: 20px;
+    position: relative;
+}

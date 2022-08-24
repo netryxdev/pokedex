@@ -26,9 +26,14 @@
     max-width: 100px;
 }
 
+.box a {
+    text-decoration: none;
+}
+
 .info-container {
     margin-top: 22px;
     line-height: 23px;
+    color: rgb(49, 49, 49);
 }
 
 pagination-controls {

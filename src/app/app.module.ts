@@ -9,34 +9,32 @@ import { HttpClientModule } from '@angular/common/http'
 //Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
-import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
+import { PokeListComponent } from './pokemon-list/poke-list.component';
+import { PokemonDetailsComponent } from './pokemon-details/poke-details.component';
 
 //Modules
-import { NgxPaginationModule } from 'ngx-pagination';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RouterModule, Routes } from "@angular/router";
-import { SearchComponent } from './search/search.component';
+import { PokeSearchComponent } from './search/search.component';
 
 const routes: Routes = [
-  { path: '', component: PokemonListComponent },
+  { path: '', component: PokeListComponent },
   { path: 'details', component: PokemonDetailsComponent },
-  { path: '**', component: PokemonListComponent }
+  { path: '**', component: PokeListComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    PokemonListComponent,
+    PokeListComponent,
     PokemonDetailsComponent,
-    SearchComponent
+    PokeSearchComponent
   ],
   imports: [
-    NgxPaginationModule, // Only works if this is on the very top of the imports array. I don't know why.
     BrowserModule,
     HttpClientModule,
     MatFormFieldModule,

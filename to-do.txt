@@ -1,0 +1,3 @@
+fazer o infinite scroll
+busca dinamica
+details pokemon
