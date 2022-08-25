@@ -8,7 +8,7 @@
 
     <poke-search (emmitSearch)="getSearch($event)"></poke-search>
 
-<div class="pokemon-grid">
+<div class="pokemon-grid" *ngIf="getAllPokemons">
     <div class="box" 
     *ngFor="let pokemon of getAllPokemons">
     <a [routerLink]="['details']">
