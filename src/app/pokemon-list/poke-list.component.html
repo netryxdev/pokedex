@@ -12,10 +12,10 @@
     <div class="box" 
     *ngFor="let pokemon of getAllPokemons">
     <a [routerLink]="['details']">
-        <img [src]="pokemon.status.sprites.front_default" alt="Pokemon" id="img">
+        <img [src]="pokemon.status?.sprites.other.dream_world.front_default" alt="Pokemon" id="img">
         <div class="info-container">
-            <strong>{{ pokemon.status.name }} &nbsp;#{{ pokemon.status.id }}</strong> <br>
-            <strong>Type: </strong> &nbsp;{{ pokemon.status.types[0].type.name}}
+            <strong>{{ pokemon.status?.name }} &nbsp;#{{ pokemon.status?.id }}</strong> <br>
+            <strong>Type: </strong> &nbsp;{{ pokemon.status?.types[0].type.name}}
         </div>
     </a>
     </div>
