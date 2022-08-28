@@ -14,8 +14,10 @@
     <a [routerLink]="['details']">
         <img [src]="pokemon.status?.sprites.other.dream_world.front_default" alt="Pokemon" id="img">
         <div class="info-container">
-            <strong>{{ pokemon.status?.name }} &nbsp;#{{ pokemon.status?.id }}</strong> <br>
-            <strong>Type: </strong> &nbsp;{{ pokemon.status?.types[0].type.name}}
+            <strong>{{ pokemon.status?.name }} 
+            &nbsp;#<strong *ngIf="pokemon.status?.order.length < 2">00</strong>{{ pokemon.status?.order }}</strong> <br>
+            <strong>Type: </strong> 
+            &nbsp;<span [ngStyle]="{ 'background-color': getTypeColor(pokemon.status?.types[0].type.name) }">{{ pokemon.status?.types[0].type.name }}</span>
         </div>
     </a>
     </div>

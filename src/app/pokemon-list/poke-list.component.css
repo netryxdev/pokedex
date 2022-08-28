@@ -3,7 +3,7 @@
     display: grid;
     grid-gap: 16px;
     padding: 19px;
-    grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
     justify-content: space-between;
     align-items: stretch;
     justify-items: center;
@@ -18,12 +18,17 @@
     max-width: 49%;
     justify-content: space-around;
     min-width: 128px;
+    background-color: #F2F2F2;
+    border-radius: 5px;
 }
 
 .pokemon-grid .box img {
     display: block;
     margin: 0 auto;
     max-width: 100px;
+    max-height: 113px;
+    min-height: 113px;
+    min-width: 90px;
 }
 
 .box a {
@@ -34,6 +39,15 @@
     margin-top: 22px;
     line-height: 23px;
     color: rgb(49, 49, 49);
+}
+
+.info-container span{
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 2px 5px 2px 5px;
+
 }
 
 pagination-controls {

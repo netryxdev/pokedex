@@ -19,28 +19,29 @@ export class PokeListComponent implements OnInit {
 
   private setAllPokemons: any;
   public getAllPokemons: any[] = [];
-
+  public pokeType: any = document.getElementsByClassName('pokeTypeClass');
+  public name: any = `lol`
   public apiError: boolean = false;
   
   typeColors: any = [
-    {normal: '#A8A77A'},
-    {fire: '#EE8130'},
-    {water: '#6390F0'},
-    {electric: '#F7D02C'},
-    {grass: '#7AC74C'},
-    {ice: '#96D9D6'},
-    {fighting: '#C22E28'},
-    {poison: '#A33EA1'},
-    {ground: '#E2BF65'},
-    {flying: '#A98FF3'},
-    {psychic: '#F95587'},
-    {bug: '#A6B91A'},
-    {rock: '#B6A136'},
-    {ghost: '#735797'},
-    {dragon: '#6F35FC'},
-    {dark: '#705746'},
-    {steel: '#B7B7CE'},
-    {fairy: '#D685AD'}
+    {types: 'normal', color: '#A8A77A'},
+    {types: 'fire', color: '#EE8130'},
+    {types: 'water', color: '#6390F0'},
+    {types: 'electric', color: '#F7D02C'},
+    {types: 'grass', color: '#7AC74C'},
+    {types: 'ice', color: '#96D9D6'},
+    {types: 'fighting', color: '#C22E28'},
+    {types: 'poison', color: '#A33EA1'},
+    {types: 'ground', color: '#E2BF65'},
+    {types: 'flying', color: '#A98FF3'},
+    {types: 'psychic', color: '#F95587'},
+    {types: 'bug', color: '#A6B91A'},
+    {types: 'rock', color: '#B6A136'},
+    {types: 'ghost', color: '#735797'},
+    {types: 'dragon', color: '#6F35FC'},
+    {types: 'dark', color: '#705746'},
+    {types: 'steel', color: '#B7B7CE'},
+    {types: 'fairy', color: '#D685AD'}
   ]
 
   constructor(
@@ -52,8 +53,9 @@ export class PokeListComponent implements OnInit {
       .subscribe((res: any) => {
         this.setAllPokemons = res.results;
         this.getAllPokemons = this.setAllPokemons;
+        //console.log(this.typeColors[0].types)
         // console.log(res)
-        // console.log(res.results)
+        //console.log(res.results.length)
         // console.log(this.getAllPokemons)
       }
     );
@@ -67,6 +69,12 @@ export class PokeListComponent implements OnInit {
     this.getAllPokemons = filter;
   }
 
+  public getTypeColor(value: any) {
+    
+    this.pokeType = value;
+    //console.log(this.pokeType)
+    return this.typeColors.filter((item: any) =>  item.types === value)[0]?.color
+  }
 }
 
 
