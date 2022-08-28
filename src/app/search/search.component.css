@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    width: 60%;
+    width: 63%;
     margin-bottom: 10px;
 }
 
@@ -18,8 +18,8 @@
     width: 80%;
     border-radius: 5px;
     border-width: 1px;
-    border-color: #7431F9;
-    background-color: #ddd;
+    border-color: rgb(133, 133, 133);
+    border-style: solid;
     padding: 5px 10px 0px 10px;
 }
 
