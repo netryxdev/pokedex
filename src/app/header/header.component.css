@@ -5,3 +5,14 @@ header {
     background-color: #7431F9;
     color: #FFFFFF ;
 }
+
+header h1 {
+    margin-bottom: 0px;
+}
+
+.container-header i {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3px !important;
+    color: #FFFFFF ;
+}
