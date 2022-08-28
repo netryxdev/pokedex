@@ -1,0 +1,3 @@
+details pokemon (fundo cor do tipo do pokemon dinamicamente) e principais informacoes
+fazer o infinite scroll por geracao de pokemon
+busca dinamica em cima do infinite-scroll (como buscarei antes de realizar o infinite scroll?)
