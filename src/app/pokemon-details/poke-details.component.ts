@@ -14,17 +14,17 @@ export class PokemonDetailsComponent implements OnInit {
 
   pokemonName!: PokemonDetail;
   //pokemon!: string;
-  
 
-  
+
+
   constructor(
     public PokeApiService: PokeApiService,
     private activatedRoute: ActivatedRoute,
     public pokemondetail: PokemonDetail
-    ) { 
+  ) {
 
-    }
-  
+  }
+
   ngOnInit(): void {
     //this.dataService.globalNamePokemon
     this.pokemon;
@@ -32,18 +32,8 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   get pokemon() {
-    const name = this.activatedRoute.snapshot.params['name']
+    const name = this.activatedRoute.snapshot.params['name'];
     return console.log(name);
   }
-
-  /* renderPokemonDetail() {
-    const name = this.route.snapshot.params['name'];
-    const arr: Observable<PokemonDetail>[] = []
-    this.dataService.getPokemonName(this.pokemon).subscribe((response: any) => {
-      this.pokemonName = response
-      console.log(name);
-    });
-  }  */
-
 
 }
