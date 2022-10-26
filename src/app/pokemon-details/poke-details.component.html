@@ -1,2 +1,4 @@
-<h1>{{ pokemon.name }}</h1>
-<h2>{{ pokemon.id }}</h2>
+<div *ngIf="pokemon.id">
+    <h1>{{ pokemon.name }}</h1>
+    <h1>{{ pokemon.height }}</h1>
+</div>

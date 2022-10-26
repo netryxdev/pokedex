@@ -1,21 +1,21 @@
 import { PokeApiService } from './../service/pokeApi.service';
 import { PokemonDetail } from '../models/pokemon.detail';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PokeListComponent } from '../pokemon-list/poke-list.component';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs';
-
+import { Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-pokemon-details',
   templateUrl: './poke-details.component.html',
   styleUrls: ['./poke-details.component.css']
 })
-export class PokemonDetailsComponent implements OnInit {
+export class PokemonDetailsComponent implements OnInit, OnDestroy {
 
-  pokemon!: { id: number; name: string; } | any;
+  pokemon: any = {};
   pokemonName: any;
-  pokemonId: any;
   data: any;
+  paramsSubscription: Subscription = new Subscription;
+
 
   constructor(
     public PokeApiService: PokeApiService,
@@ -26,23 +26,20 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pokemon = {
-      id: this.route.snapshot.params['id'],
-      name: this.route.snapshot.params['name']
-    };
-    this.route.params
-      .subscribe(
+    this.route.params.subscribe(
         (params: Params) => {
-          this.pokemon.id = params['id'];
-          this.pokemon.name = params['name'];
-          // aprender como fazer um callback aqui this.PokeApiService.getPokemonDetails(this.pokemon.name);
+            this.pokemon.name = params['name'];
+            this.PokeApiService.getPokemonDetails(this.pokemon.name).subscribe(data => {
+              this.pokemon = data;
+            }, err => {
+              console.log(err)
+            });
         }
       );
   }
 
-  get poke() {
-    const name = this.route.snapshot.params['name'];
-    return console.log(name);
+  ngOnDestroy(): void {
+    this.paramsSubscription.unsubscribe();
   }
 
 }

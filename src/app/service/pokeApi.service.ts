@@ -29,11 +29,7 @@ export class PokeApiService {
   }
 
   getPokemonDetails(pokemonName: any) {
-    this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-      .subscribe((data: any) => {
-        console.log(data);
-        return data;
-      });
+    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
   }
 
   public apiGetPokemon(url: string): Observable<any> {

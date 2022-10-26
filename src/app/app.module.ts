@@ -22,8 +22,8 @@ import { PokeSearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: '', component: PokeListComponent },
-  { path: 'details/:id', component: PokemonDetailsComponent },
-  { path: 'details/:name', component: PokemonDetailsComponent },
+/*   { path: 'details/:id', component: PokemonDetailsComponent },
+ */  { path: 'details/:name', component: PokemonDetailsComponent },
   { path: '**', component: PokeListComponent }
 ];
 

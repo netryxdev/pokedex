@@ -15,9 +15,13 @@ header a {
     color: white;
 }
 
-.container-header i {
+.github-link {
+    max-width: 99%;
     display: flex;
     justify-content: flex-end;
+}
+
+.container-header i {
     padding-right: 3px !important;
     color: #FFFFFF;
 }
