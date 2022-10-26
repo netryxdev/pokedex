@@ -3,16 +3,21 @@ header {
     padding: 20px 0px 2px;
     text-align: center;
     background-color: #7431F9;
-    color: #FFFFFF ;
+    color: #FFFFFF;
 }
 
 header h1 {
     margin-bottom: 0px;
 }
 
+header a {
+    text-decoration: none;
+    color: white;
+}
+
 .container-header i {
     display: flex;
     justify-content: flex-end;
     padding-right: 3px !important;
-    color: #FFFFFF ;
+    color: #FFFFFF;
 }
